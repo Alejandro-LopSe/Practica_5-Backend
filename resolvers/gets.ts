@@ -8,6 +8,20 @@ import { Booking, Client, Restaurant } from "../mogo/types.ts";
 import { Restaurantmodel, Restaurantmodeltype } from "../mogo/models/Restaurant.ts";
 import { Bookingmodeltype, Bookingmodel } from "../mogo/models/Booking.ts";
 
+export const base = async (req: Request<{},{},{}>, res: Response<String>)=>{
+
+    try{
+
+        
+        res.status(200).send("Funcionando")
+        
+
+    }catch(error){
+        console.log(error);
+        
+        res.status(400).send(error.message)
+    }
+}
 
 export const getClient = async (req: Request<{id: string},{},{}>, res: Response<Client>)=>{
 
