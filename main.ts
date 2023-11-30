@@ -3,7 +3,7 @@
 import express from "express";
 import mongoose from "mongoose"
 import { postBooking, postClient, postRestaurant } from "./resolvers/posts.ts";
-import { getBooking, getClient, getRestaurant } from "./resolvers/gets.ts";
+import { base, getBooking, getClient, getRestaurant } from "./resolvers/gets.ts";
 import { delBooking, delRestaurant, delall,delallRestaurants } from "./resolvers/deletes.ts";
 
 const MONGO_URL = Deno.env.get("MONGO_URL")
@@ -26,6 +26,7 @@ app
 .post("/restaurant",postRestaurant)
 .post("/booking",postBooking)
 //gets
+.get("/",base)
 .get("/client/:id",getClient)
 .get("/restaurant/:id",getRestaurant)
 .get("/booking/:id",getBooking)
